@@ -46,4 +46,4 @@ The contact form at `/contact` uses Formspree. To activate it:
 
 1. Create a free account at [formspree.io](https://formspree.io)
 2. Create a new form and copy the form ID
-3. Replace `YOUR_FORM_ID` in `src/pages/contact.astro` with your actual ID
+3. The form ID is already configured — no further action needed
