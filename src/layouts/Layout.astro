@@ -9,7 +9,7 @@ interface Props {
 
 const {
   title,
-  description = 'With over 35 years of full-time proofreading experience, Lynden Howells delivers fast, accurate proofreading and editorial services in Hobart, Tasmania and across Australia.',
+  description = 'With over 45 years of full-time proofreading experience, Lynden Howells delivers fast, accurate proofreading and editorial services in Hobart, Tasmania and across Australia.',
   canonical,
 } = Astro.props;
 
@@ -20,13 +20,10 @@ const fullTitle = title === 'Home'
   : `${title} | Lynden's Proofreading`;
 
 const nav = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/services', label: 'Services' },
-  { href: '/tenders', label: 'Tenders' },
+  { href: '/',             label: 'Home' },
+  { href: '/services',     label: 'Services' },
   { href: '/testimonials', label: 'Testimonials' },
-  { href: '/rates', label: 'Rates' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/contact',      label: 'Contact' },
 ];
 ---
 
@@ -100,8 +97,8 @@ const nav = [
       <div class="site-footer__inner">
         <div>
           <div class="site-footer__brand">Lynden's Proofreading</div>
-          <div class="site-footer__tagline">Excellence in proofreading for over 35 years</div>
-          <p style="margin-top:0.75rem;font-size:0.875rem;">Hobart, Tasmania, Australia</p>
+          <div class="site-footer__tagline">Excellence in proofreading for over 45 years</div>
+          <p style="margin-top:0.75rem;font-size:0.85rem;">Hobart, Tasmania, Australia</p>
         </div>
         <ul class="site-footer__links">
           {nav.map(({ href, label }) => (

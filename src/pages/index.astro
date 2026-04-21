@@ -3,45 +3,57 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Home">
-  <!-- Hero -->
+  <!-- Hero with header image -->
   <section class="hero">
+    <div class="hero__bg" aria-hidden="true"></div>
     <div class="hero__inner">
-      <div class="hero__content">
+      <div>
         <p class="hero__eyebrow">Hobart, Tasmania &amp; Australia-wide</p>
         <h1>Excellence in<br />Proofreading</h1>
         <p class="hero__sub">
-          Over 35 years of full-time experience ensuring your documents are accurate,
+          Over 45 years of full-time experience ensuring your documents are accurate,
           polished, and ready to represent you at your best.
         </p>
         <a href="/contact" class="hero__cta">Get in Touch</a>
       </div>
       <div class="hero__photo">
-        <img src="/lynden.jpeg" alt="Lynden Howells, proofreader and copyeditor" width="180" height="180" />
+        <img
+          src="/lynden.jpeg"
+          alt="Lynden Howells, professional proofreader"
+          width="200"
+          loading="eager"
+        />
       </div>
     </div>
   </section>
 
-  <!-- Intro -->
+  <!-- Intro / About -->
   <section class="section">
     <div class="container">
       <h2>Your reputation is on the line</h2>
       <hr class="gold-rule" />
-      <p style="font-size:1.1rem;max-width:680px;">
-        Before you print, publish, or present — proof it first. Spell-checkers catch spelling,
+      <p style="font-size:1.05rem;max-width:680px;">
+        Before you print, publish, or send — proof it first. Spell-checkers catch spelling,
         but they don't catch the wrong word in the right place, inconsistent formatting, or the
-        embarrassing error on page one of your annual report.
+        error that ends up on the cover of your annual report.
       </p>
       <p>
-        Lynden Howells has spent over 35 years doing exactly this — full-time, professionally,
-        with an eye for the details that matter. Clients across government, healthcare, education,
-        and the private sector trust Lynden to find what they've missed.
+        I'm Lynden Howells, based in Hobart, Tasmania. I've worked full-time in proofreading
+        and publishing for over 45 years — with clients ranging from government departments and
+        universities to advertising agencies and healthcare companies across Australia.
+      </p>
+      <p>
+        My clients include The Federal Group Tasmania, the University of Tasmania,
+        Clemenger Tasmania, Hobart College, and the Department of Health and Human Services.
+        The work spans annual reports, scientific journals, tender documents, legal contracts,
+        brochures, and healthcare prescribing information.
       </p>
 
       <div class="highlight-box">
-        <p style="font-size:1.05rem;font-style:italic;margin:0;">
+        <p style="font-size:1.1rem;font-family:'DM Serif Display',Georgia,serif;font-style:italic;margin:0;">
           "Bring me into the mix, so I can supply the proof."
         </p>
-        <p style="margin-top:0.5rem;font-weight:700;font-size:0.9rem;">— Lynden Howells</p>
+        <p style="margin-top:0.6rem;font-size:0.85rem;font-weight:500;color:var(--brown);">— Lynden Howells</p>
       </div>
     </div>
   </section>
@@ -55,57 +67,57 @@ import Layout from '../layouts/Layout.astro';
         <div class="card">
           <h3>Proofreading</h3>
           <p>
-            Careful, thorough review of your documents for spelling, grammar, punctuation,
-            consistency, and correct word usage — catching what spellcheck can't.
+            A trained eye for spelling, grammar, punctuation, consistency, and word usage —
+            catching what spellcheck simply cannot.
           </p>
-          <a href="/services">Learn more &rarr;</a>
+          <a href="/services#proofreading">Learn more &rarr;</a>
         </div>
         <div class="card">
           <h3>Editorial Services</h3>
           <p>
-            Beyond error-checking — suggestions for clearer phrasing and improved readability,
-            with you always retaining final say on any changes.
+            Suggestions for clearer, sharper phrasing and improved readability, with you
+            always retaining final say on every change.
           </p>
-          <a href="/services">Learn more &rarr;</a>
+          <a href="/services#editorial">Learn more &rarr;</a>
         </div>
         <div class="card">
           <h3>Tender Documents</h3>
           <p>
             Tenders rejected on technicalities represent real cost. I review for omissions,
-            contradictions, and presentation issues to strengthen your submission.
+            contradictions, and errors that can sink a strong submission.
           </p>
-          <a href="/tenders">Learn more &rarr;</a>
+          <a href="/services#tenders">Learn more &rarr;</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Social proof -->
+  <!-- Testimonial + CTA -->
   <section class="section">
     <div class="container">
       <h2>What clients say</h2>
       <hr class="gold-rule" />
       <div class="testimonial">
         <blockquote>
-          "I have been amazed at how accurate his work is (and how inaccurate my writing can be).
+          "I have been amazed at how accurate his work is — and how inaccurate my writing can be.
           I highly recommend his services to all those who are particular with the accuracy of their written work."
         </blockquote>
         <p class="testimonial__author">Michael C Dyson</p>
         <p class="testimonial__role">Managing Director, Dyson Corporate Security Pty Ltd</p>
       </div>
-      <a href="/testimonials" class="btn mt-2">Read more testimonials</a>
+      <a href="/testimonials">Read more testimonials &rarr;</a>
     </div>
   </section>
 
   <!-- CTA strip -->
-  <section class="section section--alt">
+  <section class="section section--dark">
     <div class="container" style="text-align:center;">
       <h2>Ready to get started?</h2>
-      <p style="max-width:480px;margin:1rem auto 2rem;">
-        Send me a sample of your work and I'll provide a quote. Turnaround is typically
-        24–48 hours for a standard 20-page document.
+      <p style="max-width:460px;margin:1rem auto 2rem;font-weight:300;">
+        Send me a sample and I'll provide a quote. Typical turnaround is
+        2–3 business days for a standard 20-page document, with rush jobs available on request.
       </p>
-      <a href="/contact" class="btn">Contact Lynden</a>
+      <a href="/contact" class="btn btn--gold">Contact Lynden</a>
     </div>
   </section>
 </Layout>
