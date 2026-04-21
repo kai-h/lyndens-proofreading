@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Contact"
+  description="Get in touch with Lynden Howells to discuss your proofreading or editorial project. Based in Hobart, Tasmania, working with clients across Australia."
+>
+  <div class="page-header">
+    <div class="container">
+      <h1>Contact Lynden</h1>
+      <p class="page-header__sub">Let's talk about your project</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 340px;gap:4rem;align-items:start;">
+        <div>
+          <h2>Send a message</h2>
+          <hr class="gold-rule" />
+          <p>
+            Use the form below to get in touch. Please include a brief description of
+            your document and your deadline so I can give you an accurate quote and
+            confirm availability.
+          </p>
+          <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:2rem;">
+            Please double-check your email address, or include a phone number in your
+            message so I can reach you if needed.
+          </p>
+
+          <!--
+            Contact form — powered by Formspree.
+            To activate: create a free account at formspree.io, create a form,
+            and replace YOUR_FORM_ID below with your actual form ID.
+          -->
+          <form
+            class="contact-form"
+            action="https://formspree.io/f/YOUR_FORM_ID"
+            method="POST"
+          >
+            <div class="form-group">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" required autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                value="Enquiry for Lynden's Proofreading"
+              />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                placeholder="Tell me about your document, your deadline, and any specific requirements…"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+
+        <div>
+          <h2>Details</h2>
+          <hr class="gold-rule" />
+          <div class="card" style="margin-bottom:1.5rem;">
+            <h3>Location</h3>
+            <p>Hobart, Tasmania, Australia</p>
+            <p style="font-size:0.9rem;color:var(--text-muted);">
+              Available for in-person work in Hobart and remotely for clients anywhere in Australia.
+            </p>
+          </div>
+          <div class="card" style="margin-bottom:1.5rem;">
+            <h3>Turnaround</h3>
+            <p>24–48 hours for a standard 20-page document.<br />Urgent rates available.</p>
+          </div>
+          <div class="card">
+            <h3>How to get a quote</h3>
+            <p style="font-size:0.9rem;">
+              Send a sample or the full document along with your deadline.
+              I'll come back to you promptly with a quote and confirmed timeframe.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @media (max-width: 700px) {
+    div[style*="grid-template-columns:1fr 340px"] {
+      display: block !important;
+    }
+    div[style*="grid-template-columns:1fr 340px"] > div:last-child {
+      margin-top: 3rem;
+    }
+  }
+</style>

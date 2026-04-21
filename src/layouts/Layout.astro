@@ -1,0 +1,126 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+}
+
+const {
+  title,
+  description = 'With over 35 years of full-time proofreading experience, Lynden Howells delivers fast, accurate proofreading and editorial services in Hobart, Tasmania and across Australia.',
+  canonical,
+} = Astro.props;
+
+const siteUrl = 'https://lyndensproofreading.com';
+const canonicalUrl = canonical ?? (siteUrl + Astro.url.pathname);
+const fullTitle = title === 'Home'
+  ? "Lynden's Proofreading | Expert Proofreader, Hobart Tasmania"
+  : `${title} | Lynden's Proofreading`;
+
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/services', label: 'Services' },
+  { href: '/tenders', label: 'Tenders' },
+  { href: '/testimonials', label: 'Testimonials' },
+  { href: '/rates', label: 'Rates' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={`${siteUrl}/lynden.jpeg`} />
+    <meta property="og:locale" content="en_AU" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Lynden's Proofreading",
+      "description": description,
+      "url": siteUrl,
+      "image": `${siteUrl}/lynden.jpeg`,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hobart",
+        "addressRegion": "TAS",
+        "addressCountry": "AU"
+      },
+      "areaServed": ["Tasmania", "Australia"],
+      "priceRange": "$$",
+      "founder": {
+        "@type": "Person",
+        "name": "Lynden Howells"
+      }
+    })} />
+  </head>
+  <body>
+    <nav class="site-nav" aria-label="Main navigation">
+      <div class="site-nav__inner">
+        <a href="/" class="site-nav__brand">Lynden's Proofreading</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="site-nav__links" id="nav-links">
+          {nav.map(({ href, label }) => (
+            <li>
+              <a href={href} aria-current={Astro.url.pathname === href ? 'page' : undefined}>
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div>
+          <div class="site-footer__brand">Lynden's Proofreading</div>
+          <div class="site-footer__tagline">Excellence in proofreading for over 35 years</div>
+          <p style="margin-top:0.75rem;font-size:0.875rem;">Hobart, Tasmania, Australia</p>
+        </div>
+        <ul class="site-footer__links">
+          {nav.map(({ href, label }) => (
+            <li><a href={href}>{label}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div class="site-footer__bottom">
+        &copy; {new Date().getFullYear()} Lynden Howells. All rights reserved.
+      </div>
+    </footer>
+
+    <script>
+      const toggle = document.querySelector('.nav-toggle') as HTMLButtonElement;
+      const links = document.getElementById('nav-links')!;
+      toggle?.addEventListener('click', () => {
+        const open = links.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+    </script>
+  </body>
+</html>
