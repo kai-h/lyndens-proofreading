@@ -15,9 +15,13 @@ const {
 
 const siteUrl = 'https://lyndensproofreading.com';
 const canonicalUrl = canonical ?? (siteUrl + Astro.url.pathname);
-const fullTitle = title === 'Home'
-  ? "Lynden's Proofreading | Expert Proofreader, Hobart Tasmania"
+const isHome = Astro.url.pathname === '/';
+
+const fullTitle = isHome
+  ? "Lynden's Proofreading | Professional Proofreader, Hobart Tasmania"
   : `${title} | Lynden's Proofreading`;
+
+const ogImage = `${siteUrl}/lynden.jpeg`;
 
 const nav = [
   { href: '/',         label: 'Home' },
@@ -25,6 +29,15 @@ const nav = [
   { href: '/faq',      label: 'FAQ' },
   { href: '/contact',  label: 'Contact' },
 ];
+
+const breadcrumb = !isHome ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
+    { "@type": "ListItem", "position": 2, "name": title, "item": canonicalUrl },
+  ]
+} : null;
 ---
 
 <!doctype html>
@@ -41,21 +54,32 @@ const nav = [
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={`${siteUrl}/lynden.jpeg`} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content="Lynden Howells, professional proofreader" />
+    <meta property="og:image:width" content="180" />
+    <meta property="og:image:height" content="240" />
     <meta property="og:locale" content="en_AU" />
+    <meta property="og:site_name" content="Lynden's Proofreading" />
+
+    <!-- Twitter/X Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content="Lynden Howells, professional proofreader" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-    <!-- Structured data -->
+    <!-- LocalBusiness structured data -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Lynden's Proofreading",
       "description": description,
       "url": siteUrl,
-      "image": `${siteUrl}/lynden.jpeg`,
+      "image": ogImage,
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Hobart",
@@ -84,6 +108,11 @@ const nav = [
         "worksFor": { "@type": "LocalBusiness", "name": "Lynden's Proofreading" }
       }
     })} />
+
+    <!-- Breadcrumb structured data (interior pages) -->
+    {breadcrumb && (
+      <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+    )}
   </head>
   <body>
     <nav class="site-nav" aria-label="Main navigation">
