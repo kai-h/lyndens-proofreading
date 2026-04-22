@@ -7,20 +7,28 @@ Website for Lynden Howells — professional proofreader and copyeditor based in 
 ## Tech stack
 
 - [Astro](https://astro.build) — static site generator
-- Hosted on [Cloudflare Pages](https://pages.cloudflare.com)
-- Contact form via [Formspree](https://formspree.io)
+- [Cloudflare Pages](https://pages.cloudflare.com) — hosting and CDN
+- [Formspree](https://formspree.io) — contact form backend
+- [Fontsource](https://fontsource.org) — self-hosted fonts (DM Serif Display, Inter)
 
 ## Pages
 
 | Route | Page |
 |---|---|
-| `/` | Home |
-| `/about` | About Lynden |
-| `/services` | Proofreading & Editorial Services |
-| `/tenders` | Tender Documents |
-| `/testimonials` | Testimonials |
-| `/rates` | Rates & Turnaround |
-| `/contact` | Contact |
+| `/` | Home — intro, services overview, testimonials, CTA |
+| `/services` | Proofreading, editorial services, tenders, rates |
+| `/faq` | Frequently asked questions (FAQPage schema) |
+| `/contact` | Contact form and details |
+| `/sitemap.xml` | XML sitemap |
+
+## SEO
+
+See [SEO-CHECKLIST.md](SEO-CHECKLIST.md) for a full list of what's implemented and what's still to do.
+
+Structured data implemented:
+- `LocalBusiness` schema (all pages)
+- `FAQPage` schema (`/faq`)
+- `BreadcrumbList` schema (all interior pages)
 
 ## Local development
 
@@ -40,10 +48,8 @@ Build settings:
 - **Output directory:** `dist`
 - **Node.js version:** 22
 
-## Contact form setup
+Asset caching is configured via `public/_headers`.
 
-The contact form at `/contact` uses Formspree. To activate it:
+## Contact form
 
-1. Create a free account at [formspree.io](https://formspree.io)
-2. Create a new form and copy the form ID
-3. The form ID is already configured — no further action needed
+The contact form uses Formspree (form ID: `xdaywdvy`). No further configuration needed.
