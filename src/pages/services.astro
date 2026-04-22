@@ -1,11 +1,60 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const faqs = [
+  {
+    q: "Do you use AI tools or subcontractors?",
+    a: "No. Every job is handled personally by Lynden Howells – no AI tools, no subcontractors, no exceptions. You get 45 years of trained human judgement on your document, not an algorithm."
+  },
+  {
+    q: "What file formats do you accept?",
+    a: "Microsoft Word documents and PDFs are preferred. If you're working in another format, get in touch and we can discuss options."
+  },
+  {
+    q: "Where are you based, and do you work with clients outside Tasmania?",
+    a: "Lynden is based in Hobart, Tasmania, but works with clients across eastern Australia – including Victoria, New South Wales, and Queensland – as well as internationally. Past clients include organisations in the USA and Japan. All work is handled remotely via email, so location is no barrier."
+  },
+  {
+    q: "Is there a minimum job size?",
+    a: "No. Whether it's a one-page letter or a 200-page annual report, every job gets the same careful attention."
+  },
+  {
+    q: "How long does proofreading take?",
+    a: "A typical 20-page A4 document is returned within 2–3 business days. Rush turnaround is available on request – an urgent rate is agreed upfront before work begins."
+  },
+  {
+    q: "What's the difference between proofreading and copyediting?",
+    a: "Proofreading focuses on catching errors – spelling, grammar, punctuation, consistency, and word usage. Copyediting goes a step further, also improving clarity, flow, and phrasing. Lynden offers both: straightforward proofreading for documents that just need a final check, and editorial suggestions for those that could benefit from more substantial improvement."
+  },
+  {
+    q: "How much does it cost?",
+    a: "Rates are hourly and vary with the complexity of the document. A simple newsletter and a highly technical scientific journal require different levels of expertise, and are priced accordingly. To get a quote, send a sample of your document and your deadline – Lynden will come back to you promptly."
+  },
+  {
+    q: "How do I get in touch?",
+    a: "Use the contact form or send an email to get started. Once a job is underway, Lynden is happy to speak by phone if needed – or you can leave your number and he'll call you back."
+  },
+];
 ---
 
 <Layout
   title="Services"
-  description="Professional proofreading, editorial, and tender document services by Lynden Howells – 45+ years of full-time experience, based in Hobart, Tasmania."
+  description="Professional proofreading, editorial services, and tender document review by Lynden Howells – 45+ years of full-time experience. All work done personally, no AI tools. Based in Hobart, Tasmania, serving clients across Australia and internationally."
 >
+  <!-- FAQPage structured data for Google rich results -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(({ q, a }) => ({
+      "@type": "Question",
+      "name": q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": a
+      }
+    }))
+  })} />
+
   <div class="page-header">
     <div class="container">
       <h1>Services</h1>
@@ -114,7 +163,55 @@ import Layout from '../layouts/Layout.astro';
         unseen – and you wouldn't want me to.
       </p>
 
+      <h2 id="personal">Personal service – no AI, no subcontractors</h2>
+      <hr class="gold-rule" />
+      <p>
+        Every document I take on is read and reviewed by me personally. I don't use AI
+        proofreading tools, and I don't pass work to subcontractors. When you engage
+        Lynden's Proofreading, you get Lynden – with 45 years of professional experience
+        behind every mark on the page.
+      </p>
+
       <p class="mt-2"><a href="/contact" class="btn">Request a Quote</a></p>
     </div>
   </section>
+
+  <!-- FAQ -->
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Frequently asked questions</h2>
+      <hr class="gold-rule" />
+      <dl class="faq-list">
+        {faqs.map(({ q, a }) => (
+          <div class="faq-item">
+            <dt>{q}</dt>
+            <dd>{a}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
 </Layout>
+
+<style>
+  .faq-list { display: flex; flex-direction: column; gap: 0; }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 0;
+  }
+  .faq-item:first-child { border-top: 1px solid var(--border); }
+
+  .faq-item dt {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.05rem;
+    color: var(--brown-dark);
+    margin-bottom: 0.6rem;
+  }
+
+  .faq-item dd {
+    color: var(--text);
+    line-height: 1.75;
+    margin: 0;
+  }
+</style>

@@ -9,7 +9,7 @@ interface Props {
 
 const {
   title,
-  description = 'With over 45 years of full-time proofreading experience, Lynden Howells delivers fast, accurate proofreading and editorial services in Hobart, Tasmania and across Australia.',
+  description = 'With over 45 years of full-time proofreading experience, Lynden Howells delivers accurate, personal proofreading and editorial services. Based in Hobart, Tasmania, serving clients across Australia and internationally. No AI tools, no subcontractors.',
   canonical,
 } = Astro.props;
 
@@ -62,11 +62,26 @@ const nav = [
         "addressRegion": "TAS",
         "addressCountry": "AU"
       },
-      "areaServed": ["Tasmania", "Australia"],
+      "areaServed": [
+        "Tasmania", "Victoria", "New South Wales", "Queensland",
+        "South Australia", "Western Australia", "Australia", "United States", "Japan"
+      ],
       "priceRange": "$$",
+      "knowsLanguage": "en-AU",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Proofreading and Editorial Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Proofreading" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Copyediting" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tender Document Review" } }
+        ]
+      },
       "founder": {
         "@type": "Person",
-        "name": "Lynden Howells"
+        "name": "Lynden Howells",
+        "jobTitle": "Professional Proofreader and Copyeditor",
+        "worksFor": { "@type": "LocalBusiness", "name": "Lynden's Proofreading" }
       }
     })} />
   </head>
