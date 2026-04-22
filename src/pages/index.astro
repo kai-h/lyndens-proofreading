@@ -1,11 +1,16 @@
 ---
+import { Image, getImage } from 'astro:assets';
+import lyndenPhoto from '../assets/lynden.jpeg';
+import headerImage from '../assets/site-header.jpg';
 import Layout from '../layouts/Layout.astro';
+
+const optimizedHeader = await getImage({ src: headerImage, format: 'webp', quality: 80 });
 ---
 
 <Layout title="Home">
   <!-- Hero with header image -->
   <section class="hero">
-    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="hero__bg" aria-hidden="true" style={`background-image: url('${optimizedHeader.src}')`}></div>
     <div class="hero__inner">
       <div>
         <p class="hero__eyebrow">Hobart, Tasmania &amp; available worldwide</p>
@@ -17,10 +22,12 @@ import Layout from '../layouts/Layout.astro';
         <a href="/contact" class="hero__cta">Get in Touch</a>
       </div>
       <div class="hero__photo">
-        <img
-          src="/lynden.jpeg"
+        <Image
+          src={lyndenPhoto}
           alt="Lynden Howells, professional proofreader"
-          width="200"
+          width={200}
+          height={300}
+          format="webp"
           loading="eager"
         />
       </div>

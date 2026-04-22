@@ -38,10 +38,7 @@ Last updated: April 2026
   - Write a business description using key terms (proofreader, Tasmania, Australia)
   - Select relevant categories (e.g. Proofreading Service, Editing Service)
 
-- [ ] **Google Search Console** — verify at [search.google.com/search-console](https://search.google.com/search-console)
-  - Add and verify `lyndensproofreading.com`
-  - Submit `https://lyndensproofreading.com/sitemap.xml`
-  - Monitor search queries, impressions, and any crawl errors
+- [x] **Google Search Console** — verified and sitemap submitted
 
 - [ ] **Bing Webmaster Tools** — verify at [bing.com/webmasters](https://www.bing.com/webmasters)
   - Submit sitemap
@@ -91,8 +88,8 @@ Last updated: April 2026
 
 ## 🔲 To Do — Technical (future improvements)
 
-- [ ] **WebP images** — convert `lynden.jpeg` and `site-header.jpg` to WebP using
-  Astro's `<Image>` component for automatic format conversion and size optimisation
+- [x] **WebP images** — `lynden.jpeg` and `site-header.jpg` converted via Astro's
+  `<Image>` component (headshot: 23kB → 8kB)
 - [ ] **Pricing detail** — once confirmed with Lynden, add a specific rate range
   to the FAQ answer for "How much does it cost?" (even a ballpark improves conversion)
 - [ ] **Phone number** — if Lynden is comfortable listing it, add to Contact page

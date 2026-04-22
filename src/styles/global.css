@@ -146,7 +146,6 @@ em { font-style: italic; }
 .hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url('/site-header.jpg');
   background-size: cover;
   background-position: center 40%;
   filter: brightness(0.55);
