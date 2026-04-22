@@ -144,7 +144,7 @@ em { font-style: italic; }
   background-image: url('/site-header.jpg');
   background-size: cover;
   background-position: center 40%;
-  filter: brightness(0.38);
+  filter: brightness(0.55);
 }
 
 .hero__inner {
